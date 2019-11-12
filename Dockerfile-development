@@ -1,0 +1,29 @@
+# Dockerfile
+# A development docker image for tweetflood
+
+FROM elixir:1.9 as build
+MAINTAINER Blake Kostner
+
+RUN mkdir -p /opt/tweetflood
+
+COPY . /opt/tweetflood
+WORKDIR /opt/tweetflood
+
+ENV APP_NAME=tweetflood
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+
+RUN apt-get install -fy \
+  gcc g++ git imagemagick inotify-tools \
+  make musl-dev nodejs
+
+RUN cd /opt/tweetflood && \
+  mix local.hex --force && \
+  mix local.rebar --force && \
+  mix deps.get && \
+  cd assets && \
+  npm ci
+
+EXPOSE 4000
+ENTRYPOINT ["mix"]
+CMD ["phx.server"]

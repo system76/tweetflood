@@ -1,0 +1,29 @@
+---
+
+version: "3"
+
+services:
+  tweetflood:
+    build:
+      context: .
+      dockerfile: Dockerfile-development
+    stdin_open: true
+    tty: true
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./assets:/opt/tweetflood/assets
+      - ./config:/opt/tweetflood/config
+      - ./lib:/opt/tweetflood/lib
+      - ./priv:/opt/tweetflood/priv
+      - ./test:/opt/tweetflood/test
+    command: phx.server
+    working_dir: /opt/tweetflood
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:11
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres

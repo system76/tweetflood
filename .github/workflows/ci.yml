@@ -1,0 +1,46 @@
+---
+
+name: CI
+
+on: push
+
+jobs:
+  Format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Format
+        run: docker-compose run hal format --check-formatted
+
+  Credo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Credo
+        run: docker-compose run hal credo
+
+  Dialyzer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Dialyzer
+        run: docker-compose run hal dialyzer --halt-exit-status
+
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Test
+        run: docker-compose run hal test
