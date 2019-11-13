@@ -30,6 +30,10 @@ command to setup the environment (database migrations and seed data):
 
 - `docker-compose run tweetflood ecto.setup`
 
+You'll also need to change into the assets directory and install the node packages:
+
+- `cd assets && npm install`
+
 Then run this command to start everything:
 
 - `docker-compose up`
