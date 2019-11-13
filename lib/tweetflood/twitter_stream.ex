@@ -1,5 +1,5 @@
 defmodule Tweetflood.TwitterStream do
-  @doc """
+  @moduledoc """
   GenServer for listening to incoming twitter streams.
   """
 

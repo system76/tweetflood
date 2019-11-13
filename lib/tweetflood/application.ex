@@ -13,7 +13,7 @@ defmodule Tweetflood.Application do
       # Start the endpoint when the application starts
       TweetfloodWeb.Endpoint,
       # Starts a worker by calling: Tweetflood.Worker.start_link(arg)
-      {Tweetflood.TwitterStream, []},
+      {Tweetflood.TwitterStream, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

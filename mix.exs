@@ -52,6 +52,7 @@ defmodule Tweetflood.MixProject do
       # Development and testing dependencies
       {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 0.5.0", only: [:dev, :test], runtime: false},
+      {:ex_machina, "~> 2.3", only: :test},
       {:phoenix_live_reload, "~> 1.2", only: :dev}
     ]
   end

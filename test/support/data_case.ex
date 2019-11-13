@@ -22,6 +22,7 @@ defmodule Tweetflood.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import Tweetflood.DataCase
+      import Tweetflood.Factory
     end
   end
 

@@ -39,6 +39,7 @@ defmodule Tweetflood.Tweets do
 
   defp notify({:ok, tweet}),
     do: TweetfloodWeb.Endpoint.broadcast("tweet", "new", tweet)
+
   defp notify(res),
     do: res
 end

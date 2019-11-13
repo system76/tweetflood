@@ -1,4 +1,8 @@
 defmodule TweetfloodWeb.TweetChannel do
+  @moduledoc """
+  Socket channel for persisted tweets
+  """
+
   use TweetfloodWeb, :channel
   alias Tweetflood.Presence
 

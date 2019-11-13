@@ -67,7 +67,6 @@ defmodule TweetfloodWeb do
     end
   end
 
-
   def router do
     quote do
       use Phoenix.Router
