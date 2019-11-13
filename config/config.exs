@@ -27,7 +27,9 @@ config :extwitter, :oauth,
   access_token: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   access_token_secret: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
-config :extwitter, :stream, track: "trump"
+config :extwitter, :stream,
+  track: "#spirited76",
+  user: "system76"
 
 # Configures Elixir's Logger
 config :logger, :console,

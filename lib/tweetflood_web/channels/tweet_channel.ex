@@ -4,7 +4,6 @@ defmodule TweetfloodWeb.TweetChannel do
   """
 
   use TweetfloodWeb, :channel
-  alias Tweetflood.Presence
 
   def join("tweet", _params, socket) do
     send(self(), :after_join)
