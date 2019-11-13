@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Format
-        run: docker-compose run hal format --check-formatted
+        run: docker-compose run tweetflood format --check-formatted
 
   Credo:
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Credo
-        run: docker-compose run hal credo
+        run: docker-compose run tweetflood credo
 
   Dialyzer:
     runs-on: ubuntu-latest
@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Dialyzer
-        run: docker-compose run hal dialyzer --halt-exit-status
+        run: docker-compose run tweetflood dialyzer --halt-exit-status
 
   Test:
     runs-on: ubuntu-latest
@@ -43,4 +43,4 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Test
-        run: docker-compose run hal test
+        run: docker-compose run tweetflood test
