@@ -1,4 +1,8 @@
 defmodule Tweetflood.Factory do
+  @moduledoc """
+  This module uses `ExMachina` to create database backed data for testing.
+  """
+
   use ExMachina.Ecto, repo: Tweetflood.Repo
 
   alias Tweetflood.Schemas

@@ -37,7 +37,9 @@ defmodule Tweetflood.MixProject do
       {:ecto_sql, "~> 3.0"},
       # Fixes a problem with chunking tweets causing stream errors. See
       # https://github.com/parroty/extwitter/pull/104 for more info
-      {:extwitter, git: "https://github.com/pjskennedy/extwitter.git", branch: "inconsistent-chunking-streaming-api"},
+      {:extwitter,
+       git: "https://github.com/pjskennedy/extwitter.git",
+       branch: "inconsistent-chunking-streaming-api"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.1"},
       {:oauther, "~> 1.1"},
