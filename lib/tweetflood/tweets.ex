@@ -43,7 +43,7 @@ defmodule Tweetflood.Tweets do
   def create(tweet) do
     tweet
     |> Tweet.changeset_from_tweet()
-    |> Repo.insert([on_conflict: :replace_all, conflict_target: :id])
+    |> Repo.insert(on_conflict: :replace_all, conflict_target: :id)
     |> notify()
   end
 

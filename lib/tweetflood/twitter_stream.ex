@@ -26,7 +26,6 @@ defmodule Tweetflood.TwitterStream do
     {:ok, state}
   end
 
-
   def handle_info(:tick, state) do
     Process.send_after(self(), :tick, @refresh_time_in_milliseconds)
 
