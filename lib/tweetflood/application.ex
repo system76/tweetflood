@@ -11,9 +11,9 @@ defmodule Tweetflood.Application do
       # Start the Ecto repository
       Tweetflood.Repo,
       # Start the endpoint when the application starts
-      TweetfloodWeb.Endpoint
+      TweetfloodWeb.Endpoint,
       # Starts a worker by calling: Tweetflood.Worker.start_link(arg)
-      # {Tweetflood.Worker, arg},
+      {Tweetflood.TwitterStream, []},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

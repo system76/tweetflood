@@ -1,0 +1,9 @@
+<section>
+  Tweetflood at <%= @count %>
+</section>
+
+<section>
+  <%= for tweet <- @tweets do %>
+    <h1><%= tweet.text %></h1>
+  <% end %>
+</div>

@@ -10,7 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :tweetflood, TweetfloodWeb.Endpoint,
-  http: [:inet6, port: System.get_env("PORT") || 4000],
+  http: [:inet6],
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
@@ -68,4 +68,3 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"

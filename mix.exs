@@ -20,7 +20,7 @@ defmodule Tweetflood.MixProject do
   def application do
     [
       mod: {Tweetflood.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:extwitter, :logger, :runtime_tools]
     ]
   end
 
@@ -33,15 +33,21 @@ defmodule Tweetflood.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.0"},
-      {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_ecto, "~> 4.0"},
+      # Production dependencies
       {:ecto_sql, "~> 3.0"},
-      {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.11"},
+      # Fixes a problem with chunking tweets causing stream errors. See
+      # https://github.com/parroty/extwitter/pull/104 for more info
+      {:extwitter, git: "https://github.com/pjskennedy/extwitter.git", branch: "inconsistent-chunking-streaming-api"},
       {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
+      {:jason, "~> 1.1"},
+      {:oauther, "~> 1.1"},
+      {:phoenix_ecto, "~> 4.0"},
+      {:phoenix_html, "~> 2.11"},
+      {:phoenix_live_view, "~> 0.4.1"},
+      {:phoenix_pubsub, "~> 1.1"},
+      {:phoenix, "~> 1.4.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:postgrex, ">= 0.0.0"},
 
       # Development and testing dependencies
       {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
