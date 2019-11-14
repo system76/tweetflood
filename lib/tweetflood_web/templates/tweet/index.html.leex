@@ -1,8 +1,13 @@
-<section>
-  <%= ngettext "Tweetflood at 1 tweet", "Tweetflood at %{count} tweets", @count %>
+<section class="content">
+  <h1>
+    <%= ngettext "Tweetflood at 1 tweet", "Tweetflood at %{count} tweets", @count %>
+  </h1>
+  <h2>
+    <%= gettext "Last tweet at %{time}", time: latest_tweet_time(@tweets) %>
+  </h2>
 </section>
 
-<section>
+<section class="content tweets">
   <%= for tweet <- @tweets do %>
     <h1><%= tweet.text %></h1>
   <% end %>

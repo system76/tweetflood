@@ -10,6 +10,8 @@ defmodule Tweetflood.Schemas.Tweet do
   schema "tweets" do
     field :text, :string
     field :user_id, :integer
+
+    timestamps()
   end
 
   @doc """

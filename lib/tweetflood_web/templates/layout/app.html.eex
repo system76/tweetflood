@@ -12,6 +12,7 @@
       <ul>
         <li>
           <a href="/">Home</a>
+          <a href="/random">Random</a>
         </li>
       </ul>
     </header>

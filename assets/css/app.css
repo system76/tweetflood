@@ -47,3 +47,9 @@ header ul a:active {
 main {
   flex: 1 1 auto;
 }
+
+.content {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  max-width: 80ch;
+}

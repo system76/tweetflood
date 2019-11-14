@@ -14,5 +14,6 @@ defmodule TweetfloodWeb.Router do
     pipe_through :browser
 
     get "/", TweetController, :index
+    get "/random", TweetController, :random
   end
 end

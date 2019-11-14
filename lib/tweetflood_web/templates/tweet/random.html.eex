@@ -1,0 +1,12 @@
+<section class="content">
+  <h1>
+    Random tweet
+  </h1>
+  <h2>
+    <%= tweet_time(@tweet) %>
+  </h2>
+</section>
+
+<section class="content tweets">
+  <h1><%= @tweet.text %></h1>
+</div>
