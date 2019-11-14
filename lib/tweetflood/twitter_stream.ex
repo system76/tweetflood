@@ -42,10 +42,8 @@ defmodule Tweetflood.TwitterStream do
     Logger.debug(fn -> "Fetching new tweets" end)
 
     tweets =
-      []
-      |> Keyword.put(:count, 200)
-      |> Keyword.put(:screen_name, configuration()[:user])
-      |> Keyword.put(:since_id, state[:last_tweet_id])
+      state
+      |> twitter_opts()
       |> ExTwitter.API.Favorites.favorites()
       |> Enum.filter(&part_of_campaign?/1)
 
@@ -98,6 +96,18 @@ defmodule Tweetflood.TwitterStream do
   defp configuration() do
     Application.get_env(:extwitter, :stream)
   end
+
+  @doc false
+  defp twitter_opts(state) do
+    []
+    |> maybe_put(:count, 200)
+    |> maybe_put(:screen_name, configuration()[:user])
+    |> maybe_put(:since_id, state[:last_tweet_id])
+  end
+
+  @doc false
+  defp maybe_put(list, _key, value) when is_nil(value), do: list
+  defp maybe_put(list, key, value), do: Keyword.put(list, key, value)
 
   @doc false
   defp filter_words() do

@@ -38,6 +38,16 @@ defmodule Tweetflood.Tweets do
   end
 
   @doc """
+  Returns a random tweet.
+  """
+  def random() do
+    Tweet
+    |> order_by(fragment("random()"))
+    |> limit(1)
+    |> Repo.one()
+  end
+
+  @doc """
   Creates a new database tweet from twitter.
   """
   def create(tweet) do

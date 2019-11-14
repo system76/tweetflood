@@ -52,6 +52,12 @@ defmodule Tweetflood.TweetsTest do
     assert to_string(tweet.user_id) == extweet.user.id
   end
 
+  test "random/0 returns a random tweet" do
+    tweets = insert_list(3, :tweet)
+
+    assert Tweets.random() in tweets
+  end
+
   test "create/1 will broadcast when a new tweet is created" do
     extweet = extweet_fixture()
 
