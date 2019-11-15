@@ -1,0 +1,53 @@
+# Dockerfile
+# An step to build a production Tweetflood assets
+
+FROM bitwalker/alpine-elixir-phoenix:1.9.2 as build
+MAINTAINER Blake Kostner
+
+RUN mkdir -p /opt/tweetflood
+
+COPY . /opt/tweetflood
+WORKDIR /opt/tweetflood
+
+ENV MIX_ENV=prod
+
+RUN cd /opt/tweetflood && \
+  mix local.hex --force && \
+  mix local.rebar --force && \
+  mix deps.get
+
+RUN cd /opt/tweetflood/assets && \
+  npm ci && \
+  npm run deploy
+
+RUN cd /opt/tweetflood && \
+  mix deps.compile --all && \
+  mix phx.digest && \
+  mix release
+
+# Dockerfile
+# A slim production docker image of Tweetflood
+
+FROM alpine as release
+MAINTAINER Blake Kostner
+
+RUN mkdir -p /opt/tweetflood
+
+COPY --from=build /opt/tweetflood/_build/prod/rel/tweetflood /opt/tweetflood
+WORKDIR /opt/tweetflood
+
+ENV MIX_APP=tweetflood
+ENV MIX_ENV=prod
+ENV PORT=4000
+ENV REPLACE_OS_VARS=true
+ENV SHELL=/bin/bash
+
+RUN apk add --no-cache --update bash openssl
+
+RUN chown -R nobody: /opt/tweetflood
+
+USER nobody
+EXPOSE 4000
+
+ENTRYPOINT ["/opt/tweetflood/bin/tweetflood"]
+CMD ["start"]
