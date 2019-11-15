@@ -1,15 +1,13 @@
 # Dockerfile
 # A development docker image for tweetflood
 
-FROM elixir:1.9 as build
+FROM elixir:1.9.2 as build
 MAINTAINER Blake Kostner
 
 RUN mkdir -p /opt/tweetflood
 
 COPY . /opt/tweetflood
 WORKDIR /opt/tweetflood
-
-ENV APP_NAME=tweetflood
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
 

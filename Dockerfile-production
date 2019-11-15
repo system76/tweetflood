@@ -1,7 +1,7 @@
 # Dockerfile
 # An step to build a production Tweetflood assets
 
-FROM bitwalker/alpine-elixir-phoenix:latest as build
+FROM bitwalker/alpine-elixir-phoenix:1.9.2 as build
 MAINTAINER Blake Kostner
 
 RUN mkdir -p /opt/tweetflood
