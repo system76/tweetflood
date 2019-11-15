@@ -10,10 +10,10 @@ defmodule TweetfloodWeb.TweetController do
   def random(conn, _params) do
     tweet = Tweets.random()
 
-    if not is_nil(tweet) do
-      render(conn, TweetfloodWeb.TweetView, "random.html", tweet: tweet)
-    else
+    if is_nil(tweet) do
       send_resp(conn, 404, "Not found")
+    else
+      render(conn, TweetfloodWeb.TweetView, "random.html", tweet: tweet)
     end
   end
 end

@@ -33,12 +33,12 @@ defmodule TweetfloodWeb.TweetView do
   def tweet_time(tweet) do
     tweet_date =
       tweet.inserted_at
-      |> DateTime.to_date()
+      |> NaiveDateTime.to_date()
       |> Date.to_string()
 
     tweet_time =
       tweet.inserted_at
-      |> DateTime.to_time()
+      |> NaiveDateTime.to_time()
       |> Time.to_string()
 
     "#{tweet_date} at #{tweet_time}"
