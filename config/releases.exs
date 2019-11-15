@@ -4,8 +4,20 @@ import Config
 config :tweetflood, TweetfloodWeb.Endpoint,
   http: [port: Map.get(System.get_env(), "PORT", 80)],
   url: [host: Map.get(System.get_env(), "HOST", "localhost")],
-  live_view: [signing_salt: Map.get(System.get_env(), "SIGNING_SALT", "aIVGzQU3pTaD5AllSrHa/On5E9bQ6sqd40s/CRWwx7U6EzN8vGQ9gY4cgryulHGU")],
-  secret_key_base: Map.get(System.get_env(), "SECRET_KEY_BASE", "DeChVr+x8zeL83Bhws3+29VJ3qyAaipMr21b0Wko9YufAoPhOY0q39wQb0IBXdf6")
+  live_view: [
+    signing_salt:
+      Map.get(
+        System.get_env(),
+        "SIGNING_SALT",
+        "aIVGzQU3pTaD5AllSrHa/On5E9bQ6sqd40s/CRWwx7U6EzN8vGQ9gY4cgryulHGU"
+      )
+  ],
+  secret_key_base:
+    Map.get(
+      System.get_env(),
+      "SECRET_KEY_BASE",
+      "DeChVr+x8zeL83Bhws3+29VJ3qyAaipMr21b0Wko9YufAoPhOY0q39wQb0IBXdf6"
+    )
 
 # Setup Twitter
 config :extwitter, :oauth,
