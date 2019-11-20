@@ -4,6 +4,7 @@ import Config
 config :tweetflood, TweetfloodWeb.Endpoint,
   http: [port: 4000],
   url: [host: Map.get(System.get_env(), "HOST", "localhost")],
+  server: true,
   live_view: [
     signing_salt:
       Map.get(
