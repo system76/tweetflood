@@ -17,7 +17,7 @@ defmodule TweetfloodWeb.TweetView do
   def latest_tweet(tweets) do
     tweets
     |> Enum.sort(fn x, y ->
-      case DateTime.compare(x.inserted_at, y.inserted_at) do
+      case NativeDateTime.compare(x.inserted_at, y.inserted_at) do
         :lt -> true
         _ -> false
       end

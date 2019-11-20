@@ -67,7 +67,7 @@ defmodule Tweetflood.TwitterStream do
   def handle_info({:new, tweet}, state) do
     Logger.debug(fn -> "Adding new tweet #{tweet.id}" end)
 
-    tweet = Tweets.create(tweet)
+    {:ok, tweet} = Tweets.create(tweet)
     state = update_state_last_tweet_id(state, tweet)
 
     {:noreply, state}
@@ -89,7 +89,7 @@ defmodule Tweetflood.TwitterStream do
 
   @doc false
   defp part_of_campaign?(tweet) do
-    Enum.all?(filter_words(), &String.contains?(&1, tweet.text))
+    Enum.all?(filter_words(), &String.contains?(tweet.text, &1))
   end
 
   @doc false
