@@ -49,6 +49,9 @@ defmodule Tweetflood.MixProject do
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix, "~> 1.4.0"},
       {:plug_cowboy, "~> 2.0"},
+      # Needed because extwitter requires it but Production is getting an error
+      # about Poison module not being found.
+      {:poison, "~> 3.1"},
       {:postgrex, ">= 0.0.0"},
 
       # Development and testing dependencies
