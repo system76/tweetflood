@@ -1,5 +1,9 @@
 defmodule Tweetflood.Release do
-  @aspp :tweetflood
+  @moduledoc """
+  A module for running database migrations after release.
+  """
+
+  @app :tweetflood
 
   def migrate do
     for repo <- repos() do

@@ -40,6 +40,13 @@ You can view the site at [`localhost:4000`](http://localhost:4000).
 you will need to rebuild the image with `docker-compose build tweetflood`.
 Everything else should be hot code reloaded.
 
+## Production
+
+Master will automatically publish a `system76/tweetflood` docker image. You can
+see all the environmental configuration values available at
+[`./config/releases.exs`](./config/releases.exs). Make sure to run database
+migrations by running `eval "Tweetflood.Release.migrate"`.
+
 ## Testing
 
 Just like development, this project can be tested with `docker` and
