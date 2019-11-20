@@ -4,10 +4,14 @@ defmodule TweetfloodWeb.ApiView do
   def render("index.json", %{count: count, tweets: tweets}) do
     %{
       "count" => count,
-      "tweets" => Enum.map(tweets, &%{
-        "text" => &1.text,
-        "user_id" => &1.user_id
-      })
+      "tweets" =>
+        Enum.map(
+          tweets,
+          &%{
+            "text" => &1.text,
+            "user_id" => &1.user_id
+          }
+        )
     }
   end
 end

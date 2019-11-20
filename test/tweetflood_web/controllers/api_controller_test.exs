@@ -6,11 +6,13 @@ defmodule TweetfloodWeb.ApiControllerTest do
     conn = get(conn, "/api")
 
     assert json_response(conn, 200) == %{
-      "count" => 1,
-      "tweets" => [%{
-        "text" => tweet.text,
-        "user_id" => tweet.user_id
-      }]
-    }
+             "count" => 1,
+             "tweets" => [
+               %{
+                 "text" => tweet.text,
+                 "user_id" => tweet.user_id
+               }
+             ]
+           }
   end
 end
