@@ -44,8 +44,10 @@ Everything else should be hot code reloaded.
 
 Master will automatically publish a `system76/tweetflood` docker image. You can
 see all the environmental configuration values available at
-[`./config/releases.exs`](./config/releases.exs). Make sure to run database
-migrations by running `eval "Tweetflood.Release.migrate"`.
+[`./config/releases.exs`](./config/releases.exs).
+
+Migrations are ran with `eval "Tweetflood.Release.migrate"`
+HTTP port is exposed at `4000`.
 
 ## Testing
 

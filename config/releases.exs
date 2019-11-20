@@ -2,7 +2,7 @@ import Config
 
 # Configures the endpoint
 config :tweetflood, TweetfloodWeb.Endpoint,
-  http: [port: Map.get(System.get_env(), "PORT", 80)],
+  http: [port: 4000],
   url: [host: Map.get(System.get_env(), "HOST", "localhost")],
   live_view: [
     signing_salt:
