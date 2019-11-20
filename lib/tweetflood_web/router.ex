@@ -10,10 +10,21 @@ defmodule TweetfloodWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :api do
+    plug :accepts, ["json"]
+    plug :put_secure_browser_headers
+  end
+
   scope "/", TweetfloodWeb do
     pipe_through :browser
 
     get "/", TweetController, :index
     get "/random", TweetController, :random
+  end
+
+  scope "/", TweetfloodWeb do
+    pipe_through :api
+
+    get "/api", ApiController, :index
   end
 end
