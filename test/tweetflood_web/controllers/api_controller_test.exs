@@ -10,7 +10,10 @@ defmodule TweetfloodWeb.ApiControllerTest do
              "tweets" => [
                %{
                  "text" => tweet.text,
-                 "user_id" => tweet.user_id
+                 "user_id" => tweet.user_id,
+                 "user_avatar" => tweet.user_avatar,
+                 "user_name" => tweet.user_name,
+                 "user_tag" => tweet.user_tag
                }
              ]
            }

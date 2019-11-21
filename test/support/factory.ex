@@ -11,7 +11,10 @@ defmodule Tweetflood.Factory do
     %Schemas.Tweet{
       id: sequence(:id, &"#{&1}"),
       text: "Test tweet",
-      user_id: sequence(:user_id, &"#{&1}")
+      user_id: sequence(:user_id, &"#{&1}"),
+      user_avatar: sequence(:user_avatar, &"#{&1}"),
+      user_name: sequence(:user_name, &"#{&1}"),
+      user_tag: sequence(:user_tag, &"#{&1}")
     }
   end
 end

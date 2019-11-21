@@ -8,7 +8,10 @@ defmodule Tweetflood.TweetsTest do
       id: Keyword.get(opts, :id, "123456"),
       text: Keyword.get(opts, :text, "This is a test"),
       user: %ExTwitter.Model.User{
-        id: Keyword.get(opts, :user_id, "123456")
+        id: Keyword.get(opts, :user_id, "123456"),
+        profile_image_url_https: Keyword.get(opts, :user_avatar, "http"),
+        name: Keyword.get(opts, :user_name, "System76"),
+        screen_name: Keyword.get(opts, :user_screen_name, "system76")
       }
     }
   end
