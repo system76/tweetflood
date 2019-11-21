@@ -5,7 +5,7 @@ defmodule Tweetflood.TwitterStream do
 
   use GenServer
 
-  import Logger
+  require Logger
 
   alias Tweetflood.Tweets
 
@@ -88,8 +88,9 @@ defmodule Tweetflood.TwitterStream do
   end
 
   @doc false
-  defp part_of_campaign?(tweet) do
-    Enum.all?(filter_words(), &String.contains?(tweet.full_text, &1))
+  defp part_of_campaign?(%{full_text: full_text}) do
+    lower_tweet = String.downcase(full_text)
+    Enum.any?(filter_words(), &String.contains?(lower_tweet, &1))
   end
 
   @doc false
