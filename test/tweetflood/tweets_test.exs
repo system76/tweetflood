@@ -6,7 +6,7 @@ defmodule Tweetflood.TweetsTest do
   def extweet_fixture(opts \\ []) do
     %ExTwitter.Model.Tweet{
       id: Keyword.get(opts, :id, "123456"),
-      text: Keyword.get(opts, :text, "This is a test"),
+      full_text: Keyword.get(opts, :text, "This is a test"),
       user: %ExTwitter.Model.User{
         id: Keyword.get(opts, :user_id, "123456"),
         profile_image_url_https: Keyword.get(opts, :user_avatar, "http"),

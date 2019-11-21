@@ -43,7 +43,7 @@ defmodule Tweetflood.Schemas.Tweet do
   def changeset_from_tweet(params) do
     changeset(%__MODULE__{}, %{
       id: Map.get(params, :id),
-      text: Map.get(params, :text),
+      text: Map.get(params, :full_text),
       user_id: params |> Map.get(:user) |> Map.get(:id),
       user_avatar: params |> Map.get(:user) |> Map.get(:profile_image_url_https),
       user_name: params |> Map.get(:user) |> Map.get(:name),

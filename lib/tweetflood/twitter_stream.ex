@@ -45,6 +45,7 @@ defmodule Tweetflood.TwitterStream do
       state
       |> twitter_opts()
       |> ExTwitter.API.Favorites.favorites()
+      |> IO.inspect()
       |> Enum.filter(&part_of_campaign?/1)
 
     send(self(), {:new, tweets})
@@ -89,7 +90,7 @@ defmodule Tweetflood.TwitterStream do
 
   @doc false
   defp part_of_campaign?(tweet) do
-    Enum.all?(filter_words(), &String.contains?(tweet.text, &1))
+    Enum.all?(filter_words(), &String.contains?(tweet.full_text, &1))
   end
 
   @doc false
@@ -100,7 +101,8 @@ defmodule Tweetflood.TwitterStream do
   @doc false
   defp twitter_opts(state) do
     []
-    |> maybe_put(:count, 200)
+    |> maybe_put(:count, 10)
+    |> maybe_put(:tweet_mode, :extended)
     |> maybe_put(:screen_name, configuration()[:user])
     |> maybe_put(:since_id, state[:last_tweet_id])
   end
