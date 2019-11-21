@@ -45,7 +45,6 @@ defmodule Tweetflood.TwitterStream do
       state
       |> twitter_opts()
       |> ExTwitter.API.Favorites.favorites()
-      |> IO.inspect()
       |> Enum.filter(&part_of_campaign?/1)
 
     send(self(), {:new, tweets})
