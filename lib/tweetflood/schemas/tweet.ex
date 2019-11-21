@@ -25,7 +25,7 @@ defmodule Tweetflood.Schemas.Tweet do
     user_avatar
     user_name
     user_tag
-  )
+  )a
 
   @doc """
   Creates a new `Tweetflood.Schemas.Tweet` changeset.
